@@ -1,7 +1,7 @@
 # SelfPAD: 
 ##### Author: Talip Ucar (ucabtuc@gmail.com)
 
-The official implementation of "SelfPAD: Learning Antibody Representations from Patents & Humanness Prediction". 
+The official implementation of **"SelfPAD: Learning Antibody Representations from Patents & Humanness Prediction"**. 
 
 
 [SelfPAD: Learning Antibody Representations from Patents & Humanness Prediction](TBD: url to arxiv)
