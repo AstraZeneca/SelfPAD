@@ -22,12 +22,7 @@ The official implementation of "SelfPAD: Learning Antibody Representations from 
 
 # Model
 
-<object data="./assets/pad_pretraining.pdf" type="application/pdf" width="200px" height="200px">
-    <embed src="./assets/pad_pretraining.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="./assets/pad_pretraining.pdf">Download PDF</a>.</p>
-</embed>
-</object>
-
+![SelfPAD](./assets/selfpad.png)
 
 # Environment
 We used Python 3.7 for our experiments. The environment can be set up by following three steps:
