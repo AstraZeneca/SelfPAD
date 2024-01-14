@@ -122,7 +122,7 @@ You can turn on Weight and Biases (W&B) in the config file for logging
 
 ```
 @article{ucar2024SelfPAD,
-  title={SelfPAD: Learning Antibody Representations from Patents & Humanness Prediction},
+  title={Learning Antibody Representations from Patents & Humanness Prediction},
   author={Ucar, Talip and Ramon, Aubin and Oglic, Dino and Croasdale-Wood, Rebecca and Diethe, Tom and Sormanni, Pietro},
   journal={arXiv preprint arXiv:2110.04361},
   year={2021}
@@ -135,7 +135,7 @@ If you use SelfPAD framework in your own studies, and work, please cite it by us
 ```
 @Misc{talip_ucar_2024_SelfPAD,
   author =   {Talip Ucar},
-  title =    {{SelfPAD: Learning Antibody Representations from Patents & Humanness Prediction}},
+  title =    {{Learning Antibody Representations from Patents & Humanness Prediction}},
   howpublished = {\url{https://github.com/AstraZeneca/SelfPAD}},
   month        = January,
   year = {since 2024}
