@@ -65,8 +65,6 @@ class PADformer(nn.Module):
         self.wte = nn.Embedding(config["vocab_size"], config["n_embd"])
         self.wpe = nn.Embedding(config["vocab_size"], config["n_embd"])
         self.ab_emb = AbEmbeddings(config)
-        # self.ab_1dconv3 = nn.Conv1d(18, 32, 3, stride=2)
-        # self.ab_1dconv5 = nn.Conv1d(18, 32, 5, stride=2)
 
         self.layers = nn.ModuleList([])
 
