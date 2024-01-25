@@ -53,9 +53,6 @@ noise_ratio: 0.2                 # Percentage of the sequence to add noise to
 # Number of layers to re-initialize for pre-trained model
 reinit_n_layers: 4
 
-# Number of workers for data loaders
-num_workers: 25
-
 # Embedding
 aggregate_on_sequence_dim: true  # Dimension to use when pooling the embeddings 
 emb_layer: -1                    # Embedding layer to use

@@ -105,7 +105,7 @@ class ABtokenizer:
         -------
         torch.Tensor
             The encoded sequence as a tensor.
-        """
+        """     
         encoded = [self.vocab_to_token[resn] for resn in sequence]
         return torch.tensor(encoded, dtype=torch.long, device=device)
 

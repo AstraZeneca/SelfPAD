@@ -162,9 +162,6 @@ class PADFT(nn.Module):
                 idx = np.random.permutation(no)
                 e[:, i] = h[idx, i]
 
-            # Add gaussion noise as well
-            e = e + self.config["noise_level"] * torch.randn_like(h)
-
         m = (
             torch.rand(h.size(), device=self.config["device"])
             < 1 - self.config["noise_ratio"]

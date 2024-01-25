@@ -99,6 +99,8 @@ class TabularDataset(Dataset):
 
         self.data, self.labels = self._load_data(config=self.config)
 
+    def _filter_char(self, c):
+        return True if c in self.tokenizer.vocab_to_token else False
             
     def __len__(self) -> int:
         """
@@ -183,9 +185,22 @@ class TabularDataset(Dataset):
 
         # 5- Remove 553 sequences obtained from OASis, which will be used for humanness scoring
         dataset = pd.read_csv(f"./data/{self.config['evaluation_dataset']}.csv")
+        
+        if "VH" in list(dataset):
+            dataset = dataset.dropna(subset=["VH", "VL"])
+        if "Heavy" in list(dataset):
+            dataset = dataset.dropna(subset=["Heavy", "Light"])
+
+        print(dataset)
+        
 
         dataset_h = dataset["VH"].tolist() if "VH" in list(dataset) else dataset["Heavy"].tolist()
         dataset_l = dataset["VL"].tolist() if "VL" in list(dataset) else dataset["Light"].tolist()
+        
+        # Remove any white space or characters used for alignment or any character not in the vocabulary
+        dataset_h = ["".join(filter(self._filter_char,sequence.replace(' ', '').replace('-', ''))) for sequence in dataset_h]    
+        dataset_l = ["".join(filter(self._filter_char,sequence.replace(' ', '').replace('-', ''))) for sequence in dataset_l]       
+        
         dataset_label = dataset["Label"].tolist()
 
         dataset_h_l, dataset_l_l, dataset_label_l = [], [], []

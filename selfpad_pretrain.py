@@ -92,7 +92,7 @@ def train(
     # Trainer
     trainer = pl.Trainer(
         logger=logger,
-        accelerator="gpu",  # "dp", Use data parallel
+        accelerator="gpu" if torch.cuda.is_available() else "cpu",
         max_epochs=config["max_epochs"],
         callbacks=callbacks,
         val_check_interval=config["val_check_interval"]

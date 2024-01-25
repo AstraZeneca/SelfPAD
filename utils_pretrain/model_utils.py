@@ -41,7 +41,7 @@ class PADformer(nn.Module):
         Get the number of parameters in the model.
     _init_weights(module)
         Initialize the weights of the given module.
-    forward(x, mask=None, adj=None, dist=None)
+    forward(x, mask=None)
         Perform a forward pass through the model.
     """
 
@@ -133,8 +133,6 @@ class PADformer(nn.Module):
         x: Tensor,
         x_aa: Tensor,
         mask: Optional[Tensor] = None,
-        adj: Optional[Tensor] = None,
-        dist: Optional[Tensor] = None,
     ) -> Tuple[Tensor, List[Tensor]]:
         """
         Perform a forward pass through the model.
@@ -147,10 +145,6 @@ class PADformer(nn.Module):
             Input tensor.
         mask : torch.Tensor, optional
             Mask tensor.
-        adj : torch.Tensor, optional
-            Adjacency tensor.
-        dist : torch.Tensor, optional
-            Distance tensor.
 
         Returns
         -------
@@ -171,7 +165,7 @@ class PADformer(nn.Module):
         x = self.first_lin1(x)
 
         for (att, ff) in self.layers:
-            x = ff(att(x, mask=mask, adj=adj, dist=dist))
+            x = ff(att(x, mask=mask))
             emb_l.append(x)
 
         x = self.norm_out(x)
@@ -227,11 +221,7 @@ class Attention(nn.Module):
 
     Methods
     -------
-    dist_kernel_fn(t)
-        Distance kernel function.
-    dist_kernel_mask_value_fn(t)
-        Distance kernel mask value function.
-    forward(x, mask=None, adj=None, dist=None)
+    forward(x, mask=None)
         Perform a forward pass through the attention layer.
     """
 
@@ -259,28 +249,10 @@ class Attention(nn.Module):
         self.to_qkv = nn.Linear(self.model_dim, 3 * self.inner_dim, bias=False)
         self.to_out = nn.Linear(self.inner_dim, self.model_dim)
 
-    def dist_kernel_fn(self, t: Tensor) -> Tensor:
-        """
-        Distance kernel function.
-
-        Parameters
-        ----------
-        t : torch.Tensor
-            Input tensor.
-
-        Returns
-        -------
-        torch.Tensor
-            Output tensor.
-        """
-        return torch.exp(-t) if self.dist_kernel == "exp" else torch.softmax(t, dim=-1)
-
     def forward(
         self,
         x: Tensor,
         mask: Optional[Tensor] = None,
-        adj: Optional[Tensor] = None,
-        dist: Optional[Tensor] = None,
     ) -> Tensor:
         """
         Perform a forward pass through the attention layer.
@@ -291,10 +263,6 @@ class Attention(nn.Module):
             Input tensor.
         mask : torch.Tensor, optional
             Mask tensor.
-        adj : torch.Tensor, optional
-            Adjacency tensor.
-        dist : torch.Tensor, optional
-            Distance tensor.
 
         Returns
         -------
@@ -307,12 +275,6 @@ class Attention(nn.Module):
             dim=-2
         )
         dots = einsum("b h i d, b h j d -> b h i j", q, k) * self.scale
-
-        if adj is not None:
-            adj = rearrange(adj, "b i j -> b () i j")
-
-        if dist is not None:
-            dist = rearrange(dist, "b i j -> b () i j")
 
         if mask is not None:
             mask_value = 1e6  # torch.finfo(dots.dtype).max

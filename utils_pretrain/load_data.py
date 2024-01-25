@@ -5,6 +5,7 @@ Email: ucabtuc@gmail.com or talip.ucar@astrazeneca.com
 Description: A library for data loaders.
 """
 
+import os
 import json
 import logging
 import random
@@ -74,6 +75,7 @@ class PADLoader:
             batch_size=batch_size,
             shuffle=True,
             drop_last=drop_last,
+            num_workers= os.cpu_count(),
             **kwargs,
         )
         self.test_loader = DataLoader(

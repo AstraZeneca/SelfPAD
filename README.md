@@ -1,10 +1,10 @@
 # SelfPAD: 
 ##### Author: Talip Ucar (ucabtuc@gmail.com)
 
-The official implementation of **"SelfPAD: Learning Antibody Representations from Patents & Humanness Prediction"**. 
+The official implementation of "Improving Antibody Humanness Prediction using Patent Data". 
 
 
-[SelfPAD: Learning Antibody Representations from Patents & Humanness Prediction](TBD: url to arxiv)
+[Improving Antibody Humanness Prediction using Patent Data](TBD: url to arxiv)
 
 
 # Table of Contents:
@@ -48,17 +48,17 @@ There are two types of configuration files:
 You can train and evaluate the model by using:
 
 ```
-python pretrain.py        # For pre-training
-python finetune.py        # For fine-tuning it for humanness
-python eval.py -ev test    # To compute humanness score for custome dataset, in this case it is test.csv. CSV file should have "VH", "VL" and/or "Label" columns
+python selfpad_pretrain.py        # For pre-training
+python selfpad_finetune.py        # For fine-tuning it for humanness
+python selfpad_eval.py -ev test    # To compute humanness score for custome dataset, in this case it is test.csv. CSV file should have "VH", "VL" and/or "Label" columns
 ```
 
 
 # Structure of the repo
 <pre>
-- pretrain.py
-- finetune.py
-- eval.py
+- selfpad_pretrain.py
+- selfpad_finetune.py
+- selfpad_eval.py
 
 - src
     |-selfpad.py
@@ -122,8 +122,13 @@ You can turn on Weight and Biases (W&B) in the config file for logging
 
 ```
 @article{ucar2024SelfPAD,
-  title={Learning Antibody Representations from Patents & Humanness Prediction},
-  author={Ucar, Talip and Ramon, Aubin and Oglic, Dino and Croasdale-Wood, Rebecca and Diethe, Tom and Sormanni, Pietro},
+  title={Improving Antibody Humanness Prediction using Patent Data},
+  author={Ucar, Talip and 
+          Ramon, Aubin and 
+          Oglic, Dino and 
+          Croasdale-Wood, Rebecca and 
+          Diethe, Tom and 
+          Sormanni, Pietro},
   journal={arXiv preprint arXiv:2110.04361},
   year={2021}
 }
@@ -135,7 +140,7 @@ If you use SelfPAD framework in your own studies, and work, please cite it by us
 ```
 @Misc{talip_ucar_2024_SelfPAD,
   author =   {Talip Ucar},
-  title =    {{Learning Antibody Representations from Patents & Humanness Prediction}},
+  title =    {{Improving Antibody Humanness Prediction using Patent Data}},
   howpublished = {\url{https://github.com/AstraZeneca/SelfPAD}},
   month        = January,
   year = {since 2024}

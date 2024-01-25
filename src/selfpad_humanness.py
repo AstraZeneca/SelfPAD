@@ -213,9 +213,9 @@ class PADFintune(nn.Module):
             preds_idx = (preds.argmax(axis=-1).type(torch.LongTensor)).cpu()
 
             # Compute metrics
-            f1 = self.f1_score(preds_idx, labels)
+            f1 = 100 * self.f1_score(preds_idx, labels)
             acc = 100 * self.acc_score(preds_idx, labels)
-            recall = self.recall_score(preds_idx, labels)
+            recall = 100 * self.recall_score(preds_idx, labels)
 
             self.f1_l.append(f1)
             self.acc_l.append(acc)

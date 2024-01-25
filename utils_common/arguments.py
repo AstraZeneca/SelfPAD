@@ -3,6 +3,8 @@ Loads arguments and configuration.
 Author: Talip Ucar
 Email: ucabtuc@gmail.com
 """
+
+import os
 import argparse
 import logging
 from argparse import ArgumentParser
@@ -68,6 +70,9 @@ def get_config(args: argparse.Namespace) -> dict:
 
     # Model at specific epoch
     config["model_at_epoch"] = args.model_at_epoch
+    
+    # Define number of workers
+    config["num_workers"] = os.cpu_count()
 
     # Print the device type
     logging.info(f"Device being used is {config['device']}")

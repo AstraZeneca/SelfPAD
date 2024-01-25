@@ -73,7 +73,6 @@ def eval(data_loader, config: Dict[str, Any]) -> None:
             labels = y1.reshape(
                 -1,
             )
-            # species_l.extend(y1_s)
 
             preds, h, h_ext = transformer(x1, x1aa, agg_dim=model.agg_dim)
 
@@ -90,10 +89,10 @@ def eval(data_loader, config: Dict[str, Any]) -> None:
             x1_l.append(x1)
             raw_seqs_l.extend(raw_seqs)
 
-            loss = model.ce_loss(preds, labels.to(model.device))
-            batch_loss = loss.item()
-            val_loss.append(batch_loss)
-            del loss
+            # loss = model.ce_loss(preds, labels.to(model.device))
+            # batch_loss = loss.item()
+            # val_loss.append(batch_loss)
+            # del loss
 
         preds_l = torch.cat(preds_l)
         preds_raw_l = torch.cat(preds_raw_l)
@@ -214,6 +213,7 @@ def main():
     config.update(**config_finetune)
     config["add_noise"] = False
     config["experiment"] = "humanness"
+    config["num_workers"] = 0
     
     # Ser directories (or create if they don't exist)
     set_dirs(config)

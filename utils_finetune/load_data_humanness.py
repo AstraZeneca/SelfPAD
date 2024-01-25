@@ -73,7 +73,7 @@ class PADLoader:
             batch_size=batch_size,
             sampler=train_dataset.sampler,
             drop_last=drop_last,
-            num_workers=config["num_workers"],
+            num_workers= config["num_workers"],
             **kwargs,
         )
         self.test_loader = DataLoader(
@@ -88,7 +88,7 @@ class PADLoader:
             validation_dataset,
             batch_size=batch_size,
             shuffle=False,
-            drop_last=drop_last,
+            drop_last=False,
             num_workers=config["num_workers"],
             **kwargs,
         )

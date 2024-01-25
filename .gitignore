@@ -23,6 +23,8 @@ results/*
 
 # All folders under /data, except the one provided for demo purposes, i.e. mnist
 data/*
+!data/vocab.json
+!data/aa_idx_pc_features.json
 
 # Ignore notebook folder since it might contain sensitive information
 notebooks/*
