@@ -130,7 +130,7 @@ You can turn on Weight and Biases (W&B) in the config file for logging
           Diethe, Tom and 
           Sormanni, Pietro},
   journal={arXiv preprint arXiv:2110.04361},
-  year={2021}
+  year={2024}
 }
 ```
 
