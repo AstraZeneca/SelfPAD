@@ -22,7 +22,11 @@ The official implementation of "Improving Antibody Humanness Prediction using Pa
 
 # Model
 
-![SelfPAD](./assets/selfpad.png)
+Pre-training             |  Fine-tuning
+:-------------------------:|:-------------------------:
+![SelfPAD](./assets/selfpad.png)  |  ![SelfPAD](./assets/selfpad_finetuning.png)
+
+
 
 # Environment
 We used Python 3.7 for our experiments. The environment can be set up by following three steps:
