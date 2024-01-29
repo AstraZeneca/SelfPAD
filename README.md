@@ -4,7 +4,7 @@
 The official implementation of "Improving Antibody Humanness Prediction using Patent Data". 
 
 
-[Improving Antibody Humanness Prediction using Patent Data](TBD: url to arxiv)
+[Improving Antibody Humanness Prediction using Patent Data](https://arxiv.org/pdf/2401.14442.pdf)
 
 
 # Table of Contents:
