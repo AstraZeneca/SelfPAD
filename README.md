@@ -1,10 +1,7 @@
 # SelfPAD: 
 ##### Author: Talip Ucar (ucabtuc@gmail.com)
 
-The official implementation of "Improving Antibody Humanness Prediction using Patent Data". 
-
-
-[Improving Antibody Humanness Prediction using Patent Data](https://arxiv.org/pdf/2401.14442.pdf)
+The official implementation of [Improving Antibody Humanness Prediction using Patent Data](https://arxiv.org/pdf/2401.14442.pdf)
 
 
 # Table of Contents:
