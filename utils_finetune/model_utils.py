@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.INFO)
 class PADFT(nn.Module):
     def __init__(self, config: Dict[str, Any], reinit_n_layers: int = 1) -> None:
         """
-        Fine-tunes a pre-trained Roberta model by adding a new classification head.
+        Fine-tunes a pre-trained an attention based model by adding a new classification head.
 
         Parameters
         ----------
@@ -33,8 +33,8 @@ class PADFT(nn.Module):
 
         Attributes
         ----------
-        transformer : IgLangModule
-            A pre-trained RoBERTa model.
+        transformer : nn.Module
+            A pre-trained model.
         mlp : MLP
             A multi-layer perceptron classification head.
         reinit_n_layers : int
