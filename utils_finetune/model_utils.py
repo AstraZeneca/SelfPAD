@@ -86,7 +86,7 @@ class PADFT(nn.Module):
         agg_dim: int = -1,
     ) -> tuple:
         """
-        Forward pass of the RoBERTa model.
+        Forward pass of the model.
 
         Parameters
         ----------
