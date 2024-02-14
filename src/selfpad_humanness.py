@@ -42,7 +42,7 @@ class PADFintune(nn.Module):
 
         # ------Network---------
         # Instantiate networks
-        print("Building the models for training and evaluation in SubTab framework...")
+        print("Building the models for training and evaluation in SelfPAD framework...")
         # Set Autoencoders i.e. setting loss, optimizer, and device assignment (GPU, or CPU)
         self.set_autoencoder()
         # Print out model architecture
@@ -306,7 +306,7 @@ class PADFintune(nn.Module):
 
     def adjusted_AdamW(self, debug: bool = False) -> None:
         """
-        Performs fine-tuning of a RoBERTa model with AdamW optimizer using custom learning rate decay.
+        Performs fine-tuning of the SelfPAD model with AdamW optimizer using custom learning rate decay.
         Only updates the parameters of the selected layers.
 
         Parameters
