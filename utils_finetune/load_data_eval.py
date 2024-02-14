@@ -189,11 +189,9 @@ class TabularDataset(Dataset):
         if "VH" in list(dataset):
             dataset = dataset.dropna(subset=["VH", "VL"])
         if "Heavy" in list(dataset):
-            dataset = dataset.dropna(subset=["Heavy", "Light"])
+            dataset = dataset.dropna(subset=["Heavy", "Light"])        
 
-        print(dataset)
-        
-
+        # Dataset should have either "VH"/"VL" columns or "Heavy"/"Light" for heavy and light chains respectively
         dataset_h = dataset["VH"].tolist() if "VH" in list(dataset) else dataset["Heavy"].tolist()
         dataset_l = dataset["VL"].tolist() if "VL" in list(dataset) else dataset["Light"].tolist()
         
